@@ -5,8 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Students extends Model
+class Post extends Model
 {
-    /** @use HasFactory<\Database\Factories\StudentsFactory> */
     use HasFactory;
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'image',
+        'name',
+        'age',
+        'address',
+        'phone',
+    ];
 }
