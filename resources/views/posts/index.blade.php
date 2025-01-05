@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Berita Hari Ini/h3>
+                    <h3 class="text-center my-4">Berita Hari Ini</h3>
                     <h5 class="text-center"><a href="https://BeritaHarian.com">www.BeritaHarian.com</a></h5>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('post.create') }}" class="btn btn-md btn-success mb-3">ADD POST</a>
+                        <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">ADD POST</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -40,9 +40,9 @@
                                         <td>{{ $post->reporter}}</td>
                                         <td>{{ $post->source }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('post.destroy', $post->id) }}" method="POST">
-                                                <a href="{{ route('post.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -56,7 +56,7 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        {{ $post->links() }}
+                        {{ $posts->links() }}
                     </div>
                 </div>
             </div>
