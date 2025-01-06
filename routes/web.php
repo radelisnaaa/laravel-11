@@ -10,4 +10,5 @@ Route::get('/', function () {
 Route::resource('/products', \App\Http\Controllers\ProductController::class);
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
 Route::resource('/students', \App\Http\Controllers\StudentController::class);
-route::resource('/scores', \App\Http\Controllers\ScoresController::class);
+Route::resource('/scores', \App\Http\Controllers\ScoresController::class);
+Route::resource('/reporters', \App\Http\Controllers\ReporterController::class);
