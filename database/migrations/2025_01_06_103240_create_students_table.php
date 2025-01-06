@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('name');
+            $table->integer('age');
+            $table->text('address');
+            $table->string('phone');
             $table->timestamps();
+
         });
     }
 
@@ -23,5 +29,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('students');
+        $table->dropColumn('image');
+
     }
 };
