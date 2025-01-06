@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('reporters', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone');
+            $table->text('address');
             $table->timestamps();
         });
     }
@@ -23,5 +28,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('reporters');
+        $table->dropColumn('image');
     }
 };
