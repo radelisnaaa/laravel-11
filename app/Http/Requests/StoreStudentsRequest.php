@@ -11,7 +11,7 @@ class StoreStudentsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,13 @@ class StoreStudentsRequest extends FormRequest
      */
     public function rules(): array
     {
+        //validate
         return [
-            //
+            'image'   => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'name'    => 'required|min:3',
+            'age'     => 'required|min:3',
+            'address' => 'required|min:20',
+            'phone'   => 'required|min:3'
         ];
     }
 }
