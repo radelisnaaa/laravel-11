@@ -11,7 +11,7 @@ class StoreReporterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreReporterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            //validate
+        
+            'image'    => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'title'    => 'required|min:3',
+            'content'  => 'required|min:20',
+            'reporter' => 'required|min:3',
+            'source'   => 'required|min:3'
         ];
     }
 }

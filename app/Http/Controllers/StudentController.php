@@ -36,13 +36,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request): RedirectResponse
     {
-        $request->validate([
-            'image'    => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'name'     => 'required|min:3',
-            'age'      => 'required|numeric',
-            'address'  => 'required|min:10',
-            'phone'    => 'required|numeric'
-        ]);
+       
         
         // Upload image
         $image = $request->file('image');
@@ -88,13 +82,7 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, string $id): RedirectResponse
     {
-        $request->validate([
-            'image'    => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'name'     => 'required|min:3',
-            'age'      => 'required|numeric',
-            'address'  => 'required|min:10',
-            'phone'    => 'required|numeric'
-        ]);
+        
         
         // Get student by ID
         $student = Student::findOrFail($id);
@@ -118,7 +106,12 @@ class StudentController extends Controller
             ]);
         } else {
             // Update student without image
-            $student->update($request->only(['name', 'age', 'address', 'phone']));
+            $student->update([
+                'name'     => $request->name,
+                'age'      => $request->age,
+                'address'  => $request->address,
+                'phone'    => $request->phone,
+            ]);
         }
 
         // Redirect to index

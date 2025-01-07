@@ -1,10 +1,10 @@
-DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Reporter - BeritaHarian.com</title>
+    <title>Data Comments - CommentBerita.com</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background: lightgray">
@@ -14,23 +14,27 @@ DOCTYPE html>
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <img src="{{ asset('/storage/reporters/'.$reporter->image) }}" class="rounded" style="width: 100%">
+                        <img src="{{ asset('/storage/comments/'.$comment->photo) }}" class="rounded" style="width: 100%">
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <h3>{{ $reporter->name }}</h3>
+                        <h3>Name : {{ $comment->name }}</h3>
                         <hr/>
-                        <p>{{ $reporter->email }}</p>
-                        <p>{{ $reporter->phone }}</p>
+                        <p>Email : {{ $comment->email }}</p>
+                        <hr/>
+                        <p>Phone : {{ $comment->phone }}</p>
+                        <hr/>
+                        <code>
+                            <p>Review : {!! $comment->review !!}</p>
+                        </code>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/boo    

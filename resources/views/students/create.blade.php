@@ -56,7 +56,7 @@
 
                                     <div class="form-group mb-3">
                                         <label class="font-weight-bold">ADDRESS</label>
-                                        <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" placeholder="Inside Reporter of Address">
+                                        <textarea type="text" class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Inside Address of Students">{{ old('address' )}}</textarea>
                                     
                                         <!-- error message untuk address -->
                                         @error('address')
@@ -68,7 +68,7 @@
 
                                     <div class="form-group mb-3">
                                         <label class="font-weight-bold">PHONE</label>
-                                        <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="Inside Source of Phone">
+                                        <input type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="Inside Source of Phone">
                                     
                                         <!-- error message untuk phone -->
                                         @error('phone')

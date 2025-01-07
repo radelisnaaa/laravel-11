@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('students.update', $students->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('students.update', $student->id) }}" method="POST" enctype="multipart/form-data">
                         
                             @csrf
                             @method('PUT')
@@ -33,7 +33,7 @@
 
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">NAME</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $students->title) }}" placeholder="Inside Name of Students">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $student->title) }}" placeholder="Inside Name of Students">
                             
                                 <!-- error message untuk name-->
                                 @error('name')
@@ -45,7 +45,7 @@
 
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">AGE</label>
-                                <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age', $students->age) }}" placeholder="Inside Age of Students">
+                                <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age', $student->age) }}" placeholder="Inside Age of Students">
                             
                                 <!-- error message untuk age -->
                                 @error('age')
@@ -57,7 +57,7 @@
 
                                     <div class="form-group mb-3">
                                         <label class="font-weight-bold">ADDRESS</label>
-                                        <textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Inside Address of Students">{{ old('address', $students->address) }}</textarea>
+                                        <textarea type="text" class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Inside Address of Students">{{ old('address', $student->address) }}</textarea>
                                     
                                         <!-- error message untuk address -->
                                         @error('address')
@@ -69,7 +69,7 @@
 
                                     <div class="form-group mb-3">
                                         <label class="font-weight-bold">PHONE</label>
-                                        <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone', $students->phone) }}" placeholder="Inside Phone of Students">
+                                        <input type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone', $student->phone) }}" placeholder="Inside Phone of Students">
                                     
                                         <!-- error message untuk phone -->
                                         @error('phone')

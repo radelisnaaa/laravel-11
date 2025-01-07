@@ -32,11 +32,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if(isset($students) && $students->count() > 0)
-                                    @foreach ($students as $student)
+                               
+                                    @forelse ($students as $student)
                                         <tr>
                                             <td class="text-center">
-                                                <img src="{{ asset('/storage/student/'.$student->image) }}" class="rounded" style="width: 150px">
+                                                <img src="{{ asset('/storage/students/'.$student->image) }}" class="rounded" style="width: 150px">
                                             </td>
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->age }}</td>
@@ -52,12 +52,11 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
-                                @else
-                                    <div class="alert alert-danger">
+                                    @empty
+                                        <div class="alert alert-danger">
                                         No student data available.
                                     </div>
-                                @endif
+                                    @endforelse
                             </tbody>
                         </table>
                         {{ $students->links() }}

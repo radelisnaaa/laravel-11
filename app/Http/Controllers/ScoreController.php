@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Scores;
-use App\Http\Requests\StoreScoresRequest;
-use App\Http\Requests\UpdateScoresRequest;
+
+use App\Models\Score;
+use App\Http\Requests\StoreScoreRequest;
+use App\Http\Requests\UpdateScoreRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
-class ScoresController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class ScoresController extends Controller
     public function index() : View
     {
         //get all scores
-        $scores = Scores::paginate(10);
+        $scores = Score::paginate(10);
 
         //render view with scores
         return view('scores.index', compact('scores'));
@@ -33,18 +34,11 @@ class ScoresController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreScoresRequest $request): RedirectResponse
+    public function store(StoreScoreRequest $request): RedirectResponse
     {
-        //validate form
-        $request->validate([
-            'ipa' => 'required|numeric',
-            'ips' => 'required|numeric',
-            'mtk' => 'required|numeric',
-            'bindo'=> 'required|numeric',
-            'bing' => 'required|numeric'
-        ]);
+        
         //create score
-        Scores::create([
+        Score::create([
             'ipa' => $request->ipa,
             'ips' => $request->ips,
             'mtk' => $request->mtk,
@@ -62,16 +56,9 @@ class ScoresController extends Controller
     public function show(string $id) : View
     {
         //get score by id
-        $score = Scores::findOrFail($id);
+        $score = Score::findOrFail($id);
 
-        //update score
-        $score->update([
-            'ipa' => $request->ipa,
-            'ips' => $request->ips,
-            'mtk' => $request->mtk,
-            'bindo' => $request->bindo,
-            'bing' => $request->bing
-        ]);
+        
 
         //render view with score
         return view('scores.show', compact('score'));
@@ -82,7 +69,7 @@ class ScoresController extends Controller
      */
     public function edit(string $id) : View
     {
-        $score = Scores::findOrFail($id);
+        $score = Score::findOrFail($id);
 
         return view('scores.edit', compact('score'));
     }
@@ -90,17 +77,11 @@ class ScoresController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateScoresRequest $request, string $id): RedirectResponse
+    public function update(UpdateScoreRequest $request, string $id): RedirectResponse
     {
-        $request->validate([
-            'ipa'         => 'required|numeric',
-            'ips'         => 'required|numeric',
-            'mtk'         => 'required|numeric',
-            'bindo'       => 'required|numeric',
-            'bing'        => 'required|numeric'
-        ]);
+        
         //get score by id
-        $score = Scores::findOrFail($id);
+        $score = Score::findOrFail($id);
         
         
         //update score
@@ -120,7 +101,7 @@ class ScoresController extends Controller
      */
     public function destroy(string $id) : RedirectResponse
     {
-        $score = Scores::findOrFail($id);
+        $score = Score::findOrFail($id);
 
         //delete score
         $score->delete();

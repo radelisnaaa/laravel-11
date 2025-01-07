@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateScoresRequest extends FormRequest
+class StoreScoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateScoresRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'ipa' => 'required|numeric',
+            'ips' => 'required|numeric',
+            'mtk' => 'required|numeric',
+            'bindo' => 'required|numeric',
+            'bing' => 'required|numeric'
         ];
     }
 }

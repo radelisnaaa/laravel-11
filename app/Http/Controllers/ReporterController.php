@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reporter;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreReporterRequest;
-use App\Http\Requests\UpdateReporterRequest;
+
 
 class ReporterController extends Controller
 {
@@ -148,7 +152,7 @@ class ReporterController extends Controller
         //redirect to index
         return redirect()->route('reporters.index')->with(['success' => 'Data Berhasil Dihapus!']);
 
-        
+
 
     }
 }
