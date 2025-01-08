@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
 
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold">Photo</label>
-                                    <input type="text" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" placeholder="Masukkan Photo">
+                                    <input type="file" class="form-control @error('photo') is-invalid @enderror" name="photo">
                                 
                                     <!-- error message untuk photo -->
                                     @error('photo')

@@ -22,4 +22,11 @@ class Comment extends Model
         'phone',
         'review',
     ];
+
+    public function post()
+{
+    return $this->belongsTo(Post::class);
 }
+
+}
+
