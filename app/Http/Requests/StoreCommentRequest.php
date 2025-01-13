@@ -11,7 +11,7 @@ class StoreCommentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,12 +21,10 @@ class StoreCommentRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'photo'        => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'name'         => 'required|min:5',
-            'email'        => 'required|min:10',
-            'phone'        => 'required|numeric',
-            'review'       => 'required|min:5'
-        ];
+        // return [
+        //     'post_id' => 'required|exists:posts,id',
+        //     'content' => 'required|string',
+        //     'author' => 'required|string|max:255',
+        // ];
     }
 }

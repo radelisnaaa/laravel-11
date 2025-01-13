@@ -18,6 +18,7 @@
                             <form action="{{ route('comments.store') }}" method="POST" enctype="multipart/form-data">
 
                                 @csrf
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
                                 
 
                                 <div class="form-group mb-3">
