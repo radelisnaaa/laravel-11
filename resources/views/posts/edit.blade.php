@@ -14,7 +14,8 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+                    php artisan breeze:install
+                    <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                         
                             @csrf
                             @method('PUT')
