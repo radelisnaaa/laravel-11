@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,8 @@ Route::resource('/posts', \App\Http\Controllers\PostController::class);
 Route::resource('/comments', \App\Http\Controllers\CommentController::class);
 Route::resource('/reporters', \App\Http\Controllers\ReporterController::class);
 Route::resource('/scores', \App\Http\Controllers\ScoreController::class);
-Route::resource('/student', \App\Http\Controllers\StudentController::class);
+Route::resource('/students', \App\Http\Controllers\StudentController::class);
+Route::resource('/reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

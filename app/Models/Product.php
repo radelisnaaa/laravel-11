@@ -21,4 +21,9 @@ class Product extends Model
         'price',
         'stock',
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

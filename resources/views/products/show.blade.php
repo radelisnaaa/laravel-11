@@ -29,6 +29,28 @@
                         </code>
                         <hr/>
                         <p>Stock : {{ $product->stock }}</p>
+
+                        <h2>Review</h2>
+                        @foreach($product->reviews as $review)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p>{{ $review->content }}</p>
+                                    <small class="text-muted">by {{ $review->user->name }}</small>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        <h2>Add a Review</h2>
+                        <form action="{{ route('reviews.store', $product) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Content</label>
+                                <textarea name="content" id="content" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Review</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
